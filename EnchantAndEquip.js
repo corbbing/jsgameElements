@@ -1,6 +1,8 @@
+//An Item that gives the player +4 stamina
+
 function item(){
-	this.address = null;
-	this.value = 0;
+	this.address = "eStamina";
+	this.value = 4;
 	this.slot = "headSlot";
 	this.name = "Hood"
 }
