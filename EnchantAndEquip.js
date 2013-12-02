@@ -13,11 +13,12 @@ function player(){
 	this.damageLow = 1;
 	this.damageHigh = 3;
 	this.damageMult = 1;
-	this.eHealth = 0;
-	this.eStamina = 0;
-	this.eDamageMult = 0;
+	this.eHealth = 0; //added to health
+	this.eStamina = 0; //added to stamina
+	this.eDamageMult = 0; //this is added to the regular damageMult
 	this.headSlot = null;
 	this.chestSlot = null;
+	this.weapon = null;
 }
 
 player.prototype.getEquipValues=function(){
@@ -27,6 +28,10 @@ player.prototype.getEquipValues=function(){
 	if (this.headSlot != null){
 		this[this.headSlot.address] += this.headSlot.value;
 	}
+	if (this.chestSlot != null){
+		this[this.chestSlot.address] += this.headSlot.value;
+	}
+	//etc...
 }
 
 player.prototype.equip = function(i){
@@ -34,3 +39,10 @@ player.prototype.equip = function(i){
 }
 
 var p = new player();
+
+var hood = new Item();
+
+function equipHood(){
+	p.equip(hood);
+	p.getEquipValues();
+}
